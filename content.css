@@ -1,0 +1,64 @@
+/*
+ * Keep the feed invisible during startup so it does not flash onscreen,
+ * while preserving its layout long enough for content.js to measure it.
+ */
+html:not([data-lft-ready="true"]) [data-testid="mainFeed"] {
+  visibility: hidden !important;
+}
+
+/* Normal default state: feed is removed from layout. */
+html[data-lft-feed-hidden="true"] [data-testid="mainFeed"] {
+  display: none !important;
+}
+
+#linkedin-feed-toggle {
+  all: initial;
+
+  position: fixed;
+  top: 68px;
+  z-index: 2147483647;
+
+  display: none;
+  justify-content: center;
+
+  pointer-events: auto;
+}
+
+#linkedin-feed-toggle button {
+  all: initial;
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 190px;
+  height: 42px;
+  padding: 0 20px;
+
+  background: #fff;
+  color: #111;
+
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  border-radius: 999px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  touch-action: manipulation;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+#linkedin-feed-toggle button:hover {
+  background: #f7f7f7;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+#linkedin-feed-toggle button:active {
+  transform: scale(0.98);
+}

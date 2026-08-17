@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Feed Toggle",
+  "version": "0.1.0",
+  "description": "Hide LinkedIn's main feed by default and reveal it only when you choose.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
